@@ -19,4 +19,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec', '~> 2.14.1'
 
   s.add_runtime_dependency 'houston', '~> 2.0.2'
+  s.add_runtime_dependency 'rails', '~> 4.0.2'
 end
