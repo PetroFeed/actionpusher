@@ -34,11 +34,18 @@ Your push notifications can then be called like a standard Rails mailer:
 MyPusher.send_a_push_notification.deliver
 ```
 
+In the event that you're using `Delayed::Job` for your background processing, you can work with it in the same way that
+ActionMailer would:
+
+```
+MyPusher.delay.send_a_push_notification
+```
+
 ## TODO
 
 * Implement [interceptor pattern](https://github.com/rails/rails/blob/980cdd30dc06e7cdf3490062731bb9f14789daec/actionmailer/lib/action_mailer/base.rb#L463)
 * YAML based configuration for pem files
-* Get working with DelayedJob: `MyPusher.delay.send_a_push_notification`
+* <strike>Get working with DelayedJob: `MyPusher.delay.send_a_push_notification`</strike>
 
 ## Copyright
 
