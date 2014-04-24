@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'actionpusher'
-  s.version     = '0.0.2'
+  s.version     = '0.0.3'
   s.summary     = 'Push notification composition and delivery framework (based on ActionMailer.)'
   s.description = 'Apple Push Notifications for Rails. Compose and deliver push notifications for iOS'
   s.homepage    = 'https://github.com/PetroFeed/actionpusher'
