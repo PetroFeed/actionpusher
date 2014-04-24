@@ -4,6 +4,7 @@ Gem::Specification.new do |s|
   s.version     = '0.0.1'
   s.summary     = 'Push notification composition and delivery framework (based on ActionMailer.)'
   s.description = 'Apple Push Notifications for Rails. Compose and deliver push notifications for iOS'
+  s.homepage    = 'https://github.com/PetroFeed/actionpusher'
 
   s.required_ruby_version = '>= 1.9.3'
 
