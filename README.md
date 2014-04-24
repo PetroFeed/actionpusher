@@ -36,6 +36,7 @@ MyPusher.send_a_push_notification.deliver
 
 ## TODO
 
+* Implement [interceptor pattern](https://github.com/rails/rails/blob/980cdd30dc06e7cdf3490062731bb9f14789daec/actionmailer/lib/action_mailer/base.rb#L463)
 * YAML based configuration for pem files
 * Get working with DelayedJob: `MyPusher.delay.send_a_push_notification`
 
