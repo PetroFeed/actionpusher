@@ -40,6 +40,16 @@ describe ActionPusher::Base do
       FakeMailer.fake_push(tokens: [token], message: '   ').deliver
     end
 
+    it 'handles to: as an synonym for tokens' do
+      @apn_mock.should_receive(:push)
+      FakeMailer.fake_push(to: token, message: 'message').deliver
+    end
+
+    it 'handles token: as an synonym for tokens' do
+      @apn_mock.should_receive(:push)
+      FakeMailer.fake_push(token: token, message: 'message').deliver
+    end
+
     it 'calls push on apn if a token and message is present' do
       @apn_mock.should_receive(:push)
       FakeMailer.fake_push(tokens: [token], message: 'message').deliver

@@ -19,7 +19,7 @@ module ActionPusher
     #   - +data+        -> Custom data passed through the push notification
     #   - +badge_count+ -> Number to place in badge (default is 0)
     def push(opts)
-      tokens = opts[:tokens] || []
+      tokens = [opts[:tokens] || opts[:token] || opts[:to]].flatten
       message = opts[:message] || ''
       data = opts[:data] || {}
       badge_count = opts[:badge_count] || 0
