@@ -1,7 +1,9 @@
+version = File.read(File.expand_path('../VERSION', __FILE__)).strip
+
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'actionpusher'
-  s.version     = '0.0.3'
+  s.version     = version
   s.summary     = 'Push notification composition and delivery framework (based on ActionMailer.)'
   s.description = 'Apple Push Notifications for Rails. Compose and deliver push notifications for iOS'
   s.homepage    = 'https://github.com/PetroFeed/actionpusher'
