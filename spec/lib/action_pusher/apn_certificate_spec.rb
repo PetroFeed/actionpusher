@@ -1,4 +1,5 @@
 require 'action_pusher/apn_certificate'
+require 'active_support'
 require 'rails'
 require 'pry'
 
@@ -9,8 +10,8 @@ describe ActionPusher::APNCertificate do
 
   context 'in production' do
     before :each do
-      ::Rails.stub(:env).and_return(
-        double('inquirer', production?: true))
+      inquirer = ActiveSupport::StringInquirer.new('production')
+      ::Rails.stub(:env).and_return(inquirer)
     end
 
     it 'returns a production gateway' do
@@ -19,10 +20,10 @@ describe ActionPusher::APNCertificate do
     end
   end
 
-  context 'in not production' do
+  context 'in development' do
     before :each do
-      ::Rails.stub(:env).and_return(
-        double('inquirer', production?: false))
+      inquirer = ActiveSupport::StringInquirer.new('development')
+      ::Rails.stub(:env).and_return(inquirer)
     end
 
     it 'returns a development instance' do

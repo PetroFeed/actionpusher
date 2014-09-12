@@ -1,25 +1,30 @@
 require 'houston'
+require 'yaml'
 
 module ActionPusher
   class APNCertificate
     def self.instance
       apn.tap do |apn|
-        # Load required certificate
-        apn.certificate = File.read(
-          File.join(::Rails.root, 'config', 'certificates', "push-notification-#{APNCertificate.environment_string}.pem"))
+        apn.certificate = apn_certificate
       end
     end
 
-    #######
     private
-    #######
 
-    def self.environment_string
-      if ::Rails.env.production?
-        'prod'
-      else
-        'dev'
-      end
+    def self.apn_certificate
+      File.read(certificate_path)
+    end
+
+    def self.certificate_path
+      File.join(::Rails.root, 'config', 'certificates', certificate_name)
+    end
+
+    def self.certificate_name
+      config[Rails.env]['name']
+    end
+
+    def self.config
+      YAML.load_file('config/certificates.yml')
     end
 
     def self.apn

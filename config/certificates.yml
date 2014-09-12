@@ -1,0 +1,16 @@
+# Below is the configuration for APN certificates for the ActionPusher gem
+# It is setup with the following format:
+#
+#   <rails_environment>:
+#     name: <certificate_name.pem>
+#
+# These files must be placed in config/certificates to be automatically picked
+# up by ActionPusher
+
+# References the file at: config/certificates/push-notification-development.pem
+development:
+  name: 'push-notification-development.pem'
+
+# References the file at: config/certificates/push-notification-production.pem
+production:
+  name: 'push-notification-production.pem'

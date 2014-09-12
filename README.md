@@ -9,10 +9,15 @@ To use, require the gem inside your `Gemfile`:
 gem 'actionpusher', require: 'action_pusher'
 ```
 
-Make sure your `.pem` files are under `config/certificates` with the following format:
+Make sure your `.pem` files are under `config/certificates`. Then create a `config/certificates.yml` file and a setup for each environment. Here's an example with a `development` and `production` configuration:
 
-* `config/certificates/push-notification-prod.pem`
-* `config/certificates/push-notification-dev.pem`
+```
+development:
+  name: 'push-notification-development.pem'
+
+production:
+  name: 'push-notification-production.pem'
+```
 
 Then you can define a push sender. We define our pushers inside of `app/pushers` like so:
 
@@ -44,7 +49,7 @@ MyPusher.delay.send_a_push_notification
 ## TODO
 
 * Implement [interceptor pattern](https://github.com/rails/rails/blob/980cdd30dc06e7cdf3490062731bb9f14789daec/actionmailer/lib/action_mailer/base.rb#L463)
-* YAML based configuration for pem files
+* <strike>YAML based configuration for pem files</strike>
 * <strike>Get working with DelayedJob: `MyPusher.delay.send_a_push_notification`</strike>
 
 ## Copyright
