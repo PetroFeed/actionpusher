@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    actionpusher (0.0.5)
+    actionpusher (1.0.0)
       houston (~> 2.0.2)
       rails (>= 4.0, < 5.0)
 
